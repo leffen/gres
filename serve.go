@@ -1,13 +1,13 @@
 package gres
 
 import (
+	"github.com/Sirupsen/logrus"
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
-	"github.com/sirupsen/logrus"
 )
 
 // NewRouter instanciate the router with some middleware
-func NewRouter(host string, httpPort int, logger *logrus.Logger) *chi.Mux {
+func NewRouter(logger *logrus.Logger) *chi.Mux {
 
 	r := chi.NewRouter()
 	r.Use(RequestID())

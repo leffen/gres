@@ -4,14 +4,14 @@ import (
 	"context"
 	"fmt"
 	"log"
+	"net/http"
 	"os"
 	"os/signal"
 	"time"
 
-	"github.com/sirupsen/logrus"
+	"github.com/leffen/gres"
 
-	"github.com/vincentserpoul/gorestarter/pkg/rest"
-	"github.com/vincentserpoul/gorestarter/pkg/storage"
+	"github.com/Sirupsen/logrus"
 )
 
 func main() {
@@ -19,17 +19,24 @@ func main() {
 	// Get the config
 	conf := newConfig()
 
-	// Get the MySQL conn pool
-	sqlConnPool, errQ := storage.NewMySQLDBConnPool(conf.MySQLDBConf)
-	if errQ != nil {
-		log.Fatal(errQ)
-	}
-
 	// Initiate the logger
 	logger := logrus.New()
 	// logger.Formatter = &logrus.JSONFormatter{}
 
-	srv := rest.New(conf.HTTPPort, sqlConnPool, logger)
+	r := gres.NewRouter(logger)
+
+	srv := &http.Server{
+		Addr:    fmt.Sprintf(":%d", conf.HTTPPort),
+		Handler: r,
+	}
+
+	go func() {
+		err := srv.ListenAndServe()
+		if err != nil {
+			log.Fatal(err)
+		}
+	}()
+
 	fmt.Printf("Listening on port :%d\n", conf.HTTPPort)
 
 	// subscribe to SIGINT signals

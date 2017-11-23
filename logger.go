@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/segmentio/ksuid"
-	"github.com/sirupsen/logrus"
+	"github.com/Sirupsen/logrus"
 )
 
 // ErrRequestContextKey will allow the error to be passed down

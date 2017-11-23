@@ -8,4 +8,4 @@ release: test bump push
 	git push --tags
 
 test:
-	go test . -v
+	go test ./... -cover -bench=. -test.benchtime=3s;

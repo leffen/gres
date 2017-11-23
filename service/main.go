@@ -36,7 +36,7 @@ func main() {
 		}
 	}()
 
-	fmt.Printf("Listening on port :%d\n", conf.HTTPPort)
+	fmt.Printf("Listening on port :%d\n", HTTPPort)
 
 	// subscribe to SIGINT signals
 	stopChan := make(chan os.Signal, 1)

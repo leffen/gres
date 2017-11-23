@@ -10,4 +10,3 @@ Based on https://github.com/vincentserpoul/gorestarter
 
 
 ## TODO List
-

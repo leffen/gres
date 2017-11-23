@@ -6,7 +6,7 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-// New instanciate the http server and return a channel
+// NewRouter instanciate the router with some middleware
 func NewRouter(host string, httpPort int, logger *logrus.Logger) *chi.Mux {
 
 	r := chi.NewRouter()

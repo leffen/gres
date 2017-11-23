@@ -4,8 +4,6 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/vincentserpoul/gorestarter/pkg/rest/mid"
-
 	"github.com/go-chi/render"
 )
 
@@ -26,7 +24,7 @@ type ErrResponse struct {
 func (e *ErrResponse) Render(w http.ResponseWriter, r *http.Request) error {
 	render.Status(r, e.HTTPStatusCode)
 	// Putting the request error in context, so it can be picked up by logging
-	*r = *r.WithContext(context.WithValue(r.Context(), mid.ErrRequestContextKey, e.Err))
+	*r = *r.WithContext(context.WithValue(r.Context(), ErrRequestContextKey, e.Err))
 	return nil
 }
 

@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net/http"
 
-	log "github.com/sirupsen/logrus"
+	"github.com/sirupsen/logrus"
 
 	"github.com/go-chi/render"
 )
@@ -17,7 +17,7 @@ func ResponseJSONRender(w http.ResponseWriter, r *http.Request, e interface{}) {
 	if errJSON != nil {
 		errRend := render.Render(w, r, ErrRender(errJSON))
 		if errRend != nil {
-			log.Errorf("ResponseJSONRender %s", errRend)
+			logrus.Errorf("ResponseJSONRender %s", errRend)
 		}
 		return
 	}
@@ -26,7 +26,7 @@ func ResponseJSONRender(w http.ResponseWriter, r *http.Request, e interface{}) {
 	if errW != nil {
 		errRend := render.Render(w, r, ErrRender(errW))
 		if errRend != nil {
-			log.Errorf("ResponseJSONRender %s", errRend)
+			logrus.Errorf("ResponseJSONRender %s", errRend)
 		}
 		return
 	}

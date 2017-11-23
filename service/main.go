@@ -11,7 +11,7 @@ import (
 
 	"github.com/leffen/gres"
 
-	"github.com/Sirupsen/logrus"
+	"github.com/sirupsen/logrus"
 )
 
 func main() {

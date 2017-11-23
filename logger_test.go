@@ -9,8 +9,8 @@ import (
 	"testing"
 
 	"github.com/segmentio/ksuid"
-	"github.com/Sirupsen/logrus"
-	"github.com/Sirupsen/logrus/hooks/test"
+	"github.com/sirupsen/logrus"
+	"github.com/sirupsen/logrus/hooks/test"
 )
 
 func TestLoggerCompleteness(t *testing.T) {

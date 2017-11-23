@@ -15,9 +15,8 @@ import (
 )
 
 func main() {
-
+	HTTPPort := 5017
 	// Get the config
-	conf := newConfig()
 
 	// Initiate the logger
 	logger := logrus.New()
@@ -26,7 +25,7 @@ func main() {
 	r := gres.NewRouter(logger)
 
 	srv := &http.Server{
-		Addr:    fmt.Sprintf(":%d", conf.HTTPPort),
+		Addr:    fmt.Sprintf(":%d", HTTPPort),
 		Handler: r,
 	}
 

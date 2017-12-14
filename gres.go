@@ -3,4 +3,4 @@ package gres
 // TODO: Add some more info here
 
 // VERSION of the application
-const VERSION = "0.1.8"
+const VERSION = "0.1.9"

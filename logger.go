@@ -37,7 +37,7 @@ func newAugmentedResponseWriter(w http.ResponseWriter) *augmentedResponseWriter 
 }
 
 // Logger will return an error if the required params are not there
-func Logger(l *logrus.Logger) func(http.Handler) http.Handler {
+func Logger(l logrus.FieldLogger) func(http.Handler) http.Handler {
 	return func(h http.Handler) http.Handler {
 		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 			logFields := logrus.Fields{}

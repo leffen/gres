@@ -1,4 +1,4 @@
-module github.com/leffen/gres.v1
+module github.com/leffen/gres
 
 go 1.12
 
